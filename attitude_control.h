@@ -10,7 +10,6 @@
 
 int duallooppid(ppid par,float *delta0,float *data0,float data,float aim,float *integral);
 void cal_mot_all(void);
-void cal_mot_h(void);
 void limitang(motor *mot_in,int motrlim);
 motor *getmot(void);
 

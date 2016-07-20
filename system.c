@@ -21,38 +21,46 @@ extern angle integral;
 
 void sysinit(void)
 {
-	sensorinit();
-	get_data();
+	sensorinit();//陀螺仪复位
+	get_data();//高度初始化
 	init_hight=px4flow_data.ground_distance/10.0-3;
-	R_TAU0_Channel0_Start();
+	R_TAU0_Channel0_Start();//开启pwm输出
 }
 
 void start(void)
 {
-	//R_TAU0_Channel0_Start();
+	//设置初始目标值
 	mot_min_h=1000;
 	command_buf.h=10;
+	
+	//开启定时器中断
 	R_TAU0_Channel5_Start();
-	//R_TAU0_Channel6_Start();
-	//R_IT_Start();
+	
+	//设置标志位
 	sign_stop=0;
 }
 
 void stop(void)
 {
+	//设置标志位
 	sign_stop=1;
+	
+	//关闭定时器中断
 	R_TAU0_Channel5_Stop();
+	
+	//积分项清零
 	command_buf.h=0;
 	integral_h=0;
 	integral.x=0;
 	integral.y=0;
 	integral.z=0;
 	mot_min_h=100;
-	//R_TAU0_Channel6_Stop();
-	//R_IT_Stop();
+	
+	//关闭电机
 	TDR01=2000;TDR02=2000;TDR03=2000;TDR04=2000;
 }
 
+//这个函数对pwm进行最终限幅
 void mot_preoutput(void)
 {
 	if(motout.TDR1<MOT_MIN)output_buffer.TDR1=MOT_MIN;
@@ -72,6 +80,7 @@ void mot_preoutput(void)
 	else output_buffer.TDR4=motout.TDR4;
 }
 
+//这个函数真正输出pwm变化
 void mot_output(void)
 {
 	TDR01=output_buffer.TDR1;
@@ -80,6 +89,7 @@ void mot_output(void)
 	TDR04=output_buffer.TDR4;
 }
 
+//这个函数向上位机发送飞行器状态
 void report()
 {
 	//R_UART1_Send();

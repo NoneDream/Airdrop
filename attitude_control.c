@@ -9,13 +9,22 @@ motor motout;
 angle angle0,integral,delta0,ang;
 extern angle angle_before;
 float integral_h,hight0，delta0_h;
+
+//双环pid系数
 ppid 	angle_parameter_r={0.1,7,1.7,0,300},\
 	angle_parameter_z={0,16,3.5,0,300},\
 	hight_parameter={0.02,300,12,0,600};
+	
+//角度pid最高限幅,高度pid输出,高度pid输出的基数
 int motrlimit=1000,outh,mot_min_h=100;
+
+//角度pid输出
 int outx,outy,outz;
+
+//期望值
 remotedata command;
 
+//双环pid
 int duallooppid(ppid par,float *delta0,float *data0,float data,float aim,float *integral)
 {
 	int output;
@@ -25,40 +34,52 @@ int duallooppid(ppid par,float *delta0,float *data0,float data,float aim,float *
 	delta=neihuan_aim-(data-(*data0));
 	*integral=(*integral)+delta;
 	
-	lim=par.output_limit/par.neihuan_i;
+	//积分项限幅
+	lim=par.i_limit/par.neihuan_i;
 	if(*integral<-lim)*integral=-lim;
 	else if(*integral>lim)*integral=lim;
 	
 	output=((int)((delta*par.neihuan_p)+((delta-(*delta0))*par.neihuan_d)+((*integral)*par.neihuan_i)));
+	
 	*delta0=delta;
 	*data0=data;
-	if(output<-par.output_limit)
-	{
-		*integral=(*integral)-delta;
-		return -par.output_limit;
-	}
-	else if(output>par.output_limit)
-	{
-		*integral=(*integral)-delta;
-		return par.output_limit;
-	}
-	else return output;
+	
+	return output;
 }
 
+//计算角度pid和高度pid的输出得到最终输出
 void cal_mot_all(void)
 {
-	//int outx,outy,outz;
 	motor mot_ang;
 	angle *angnow;
-	//remotedata command;
+	float hight;
 	
-	command=returncommand();//getcommand();
+	//获取目标值和当前数据
+	command=returncommand();
 	angnow=angle_filter();
+	hight=hight_filter();
+	
+	//高度过低时角度不进行积分，防止地形影响
+	if(hight<4)
+	{
+		integral.x=0;
+		integral.y=0;
+		integral.z=0;
+	}
+	//高度积分项不得小于0
+	if(integral_h<0)integral_h=0;
+	outh=duallooppid(hight_parameter,&delta0_h,&hight0,hight,command.h,&integral_h);
+	
+#ifdef DEBUG_MOT_H
+	outh=DEBUG_MOT_H;
+#endif
+	
+	outh=outh+mot_min_h;
 	
 	outx=duallooppid(angle_parameter_r,&(delta0.x),&(angle0.x),angle_before.x,command.x,&(integral.x));
 	outy=duallooppid(angle_parameter_r,&(delta0.y),&(angle0.y),angle_before.y,command.y,&(integral.y));
 	outz=duallooppid(angle_parameter_z,&(delta0.z),&(angle0.z),angle_before.z,command.vz,&(integral.z));
-	//(command.vz+angle_before.z)
+
 #ifdef DEBUG_MOT_X
 	outx=DEBUG_MOT_X;
 #endif
@@ -82,29 +103,7 @@ void cal_mot_all(void)
 	motout.TDR4=mot_ang.TDR4+outh+MOT_MIN;
 }
 
-void cal_mot_h(void)
-{
-	float hight;
-	
-	hight=hight_filter();
-	if(hight<4)
-	{
-		integral.x=0;
-		integral.y=0;
-		integral.z=0;
-	}
-	if(integral_h<0)integral_h=0;
-	outh=duallooppid(hight_parameter,&delta0_h,&hight0,hight,command.h,&integral_h);
-#ifdef DEBUG_MOT_H
-	outh=DEBUG_MOT_H;
-#endif
-	
-	outh=outh+mot_min_h;
-	
-	//if(outh<mot_min_h)outh=mot_min_h;
-
-}
-
+//限幅，用于角度pid的输出
 void limitang(motor *mot_in,int motrlim)
 {
 	if(mot_in->TDR1<-motrlim)mot_in->TDR1=-motrlim;else if(mot_in->TDR1>motrlim)mot_in->TDR1=motrlim;
@@ -113,6 +112,7 @@ void limitang(motor *mot_in,int motrlim)
 	if(mot_in->TDR4<-motrlim)mot_in->TDR4=-motrlim;else if(mot_in->TDR4>motrlim)mot_in->TDR4=motrlim;
 }
 
+//返回电机pwm值
 motor *getmot(void)
 {
 	return &motout;

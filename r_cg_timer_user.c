@@ -125,7 +125,6 @@ __interrupt static void r_tau0_channel5_interrupt(void)
     get_data();//hight
     getangledata();//angle
     if(sign_stop)return;
-    cal_mot_h();
     cal_mot_all();
     mot_preoutput();//limit
     

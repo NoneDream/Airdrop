@@ -8,7 +8,7 @@
 
 const char adr=0x84;
 const char flow_tx=0x00;
-float hight_before=0,init_hight,delta_h;
+float hight_before=0,init_hight;
 px4flow_frame px4flow_data;
 extern bool iicsend,iicreceive;
 
@@ -38,14 +38,7 @@ float hight_filter()
 	hightbuf=（(float)px4flow_data.ground_distance）/10;
 	hight=(hightbuf-init_hight)*0.8;//(hight_before*0.2)+((hightbuf-init_hight)*0.8);/*减去初始高度*/
 	
-	delta_h=hight-hight_before;
-	
 	hight_before=hight;
 	
 	return hight;
-}
-
-float return_delta_h()
-{
-	return delta_h;
 }

@@ -1,7 +1,7 @@
 
 
 
-78K0R Linker W1.80                            Date: 1 Jun 2016 Page:   1
+78K0R Linker W1.80                            Date:20 Jul 2016 Page:   1
 
 Command:   -yD:\Renesas Electronics\CS+\CACX\Device\RL78\Devicefile -_ms
            goff -oDefaultBuild\WTF-beta.lmf -gi00000000000000000000h -go
@@ -27,8 +27,8 @@ Directive:
 *** Link information ***
 
     51 output segment(s)
- 21CCH byte(s) real data
-  1631 symbol(s) defined
+ 213EH byte(s) real data
+  1610 symbol(s) defined
 
 
 *** Memory map ***
@@ -290,7 +290,7 @@ Directive:
                   @@LCODE  m_ftols    00745H    00078H
                   @@LCODE  m_lstof    007BDH    00016H
                   @@LCODE  m_lutof    007D3H    0004DH
-         @@BASE                       00820H    0034BH  CSEG BASE
+         @@BASE                       00820H    00347H  CSEG BASE
                   @@BASE   r_main     00820H    00000H
                   @@BASE   r_systeminit
                                       00820H    00000H
@@ -308,52 +308,55 @@ Directive:
                   @@BASE   r_cg_timer
                                       009FBH    00000H
                   @@BASE   r_cg_timer_user
-                                      009FBH    0012FH
-                  @@BASE   r_cg_it    00B2AH    00000H
+                                      009FBH    0012BH
+                  @@BASE   r_cg_it    00B26H    00000H
                   @@BASE   r_cg_it_user
-                                      00B2AH    00041H
-                  @@BASE   delay      00B6BH    00000H
-                  @@BASE   GY95       00B6BH    00000H
+                                      00B26H    00041H
+                  @@BASE   delay      00B67H    00000H
+                  @@BASE   GY95       00B67H    00000H
                   @@BASE   attitude_control
-                                      00B6BH    00000H
-                  @@BASE   system     00B6BH    00000H
-                  @@BASE   px4flow    00B6BH    00000H
+                                      00B67H    00000H
+                  @@BASE   system     00B67H    00000H
+                  @@BASE   px4flow    00B67H    00000H
                   @@BASE   raspberry_pi
-                                      00B6BH    00000H
-* gap *                               00B6BH    00001H
-         @@CNSTL                      00B6CH    000CEH  CSEG PAGE64KP
-                  @@CNSTL  m_fcom5    00B6CH    000CEH
-         @@CODEL                      00C3AH    0138FH  CSEG
-                  @@CODEL  r_main     00C3AH    00017H
+                                      00B67H    00000H
+* gap *                               00B67H    00001H
+         @@CNSTL                      00B68H    000CEH  CSEG PAGE64KP
+                  @@CNSTL  m_fcom5    00B68H    000CEH
+         @@CODEL                      00C36H    01305H  CSEG
+                  @@CODEL  r_main     00C36H    00014H
                   @@CODEL  r_systeminit
-                                      00C51H    0002BH
-                  @@CODEL  r_cg_cgc   00C7CH    00017H
+                                      00C4AH    0002BH
+                  @@CODEL  r_cg_cgc   00C75H    00017H
                   @@CODEL  r_cg_cgc_user
-                                      00C93H    0000CH
+                                      00C8CH    0000CH
                   @@CODEL  r_cg_port
-                                      00C9FH    00013H
+                                      00C98H    00013H
                   @@CODEL  r_cg_port_user
-                                      00CB2H    00000H
+                                      00CABH    00000H
                   @@CODEL  r_cg_serial
-                                      00CB2H    0037FH
+                                      00CABH    0037FH
                   @@CODEL  r_cg_serial_user
-                                      01031H    000CEH
+                                      0102AH    000CEH
                   @@CODEL  r_cg_timer
-                                      010FFH    00243H
+                                      010F8H    00243H
                   @@CODEL  r_cg_timer_user
-                                      01342H    00000H
-                  @@CODEL  r_cg_it    01342H    00033H
+                                      0133BH    00000H
+                  @@CODEL  r_cg_it    0133BH    00033H
                   @@CODEL  r_cg_it_user
-                                      01375H    00000H
-                  @@CODEL  delay      01375H    0003FH
-                  @@CODEL  GY95       013B4H    00221H
+                                      0136EH    00000H
+                  @@CODEL  delay      0136EH    0003FH
+                  @@CODEL  GY95       013ADH    00221H
                   @@CODEL  attitude_control
-                                      015D5H    00440H
-                  @@CODEL  system     01A15H    0015DH
-                  @@CODEL  px4flow    01B72H    000E3H
+                                      015CEH    003D9H
+                  @@CODEL  system     019A7H    0015DH
+                  @@CODEL  px4flow    01B04H    000C3H
                   @@CODEL  raspberry_pi
-                                      01C55H    00374H
-* gap *                               01FC9H    00037H
+                                      01BC7H    00374H
+         @@LCODEL                     01F3BH    00060H  CSEG
+                  @@LCODEL @stkinit   01F3BH    00044H
+                  @@LCODEL exit       01F7FH    0001CH
+* gap *                               01F9BH    00065H
          @@CNST                       02000H    0000CH  CSEG MIRRORP
                   @@CNST   @cstart    02000H    00000H
                   @@CNST   r_main     02000H    00000H
@@ -385,17 +388,14 @@ Directive:
                   @@CNST   px4flow    02006H    00002H
                   @@CNST   raspberry_pi
                                       02008H    00004H
-         @@LCODEL                     0200CH    00060H  CSEG
-                  @@LCODEL @stkinit   0200CH    00044H
-                  @@LCODEL exit       02050H    0001CH
-* gap *                               0206CH    0DD94H
+* gap *                               0200CH    0DDF4H
          ??OCDROM                     0FE00H    00200H  CSEG
 
   MEMORY=RAM
   BASE ADDRESS=FEF00H   SIZE=01100H
          OUTPUT   INPUT    INPUT      BASE      SIZE
          SEGMENT  SEGMENT  MODULE     ADDRESS
-         @@DATA                       FEF00H    001C6H  DSEG BASEP
+         @@DATA                       FEF00H    001C2H  DSEG BASEP
                   @@DATA   @cstart    FEF00H    000BAH
                   @@DATA   r_main     FEFBAH    00000H
                   @@DATA   r_systeminit
@@ -423,202 +423,202 @@ Directive:
                   @@DATA   attitude_control
                                       FF010H    0005CH
                   @@DATA   system     FF06CH    0000AH
-                  @@DATA   px4flow    FF076H    0001EH
+                  @@DATA   px4flow    FF076H    0001AH
                   @@DATA   raspberry_pi
-                                      FF094H    00032H
-                  @@DATA   @rom       FF0C6H    00000H
-         @@INIT                       FF0C6H    00042H  DSEG BASEP
-                  @@INIT   @cstart    FF0C6H    00000H
-                  @@INIT   r_main     FF0C6H    00000H
+                                      FF090H    00032H
+                  @@DATA   @rom       FF0C2H    00000H
+         @@INIT                       FF0C2H    00042H  DSEG BASEP
+                  @@INIT   @cstart    FF0C2H    00000H
+                  @@INIT   r_main     FF0C2H    00000H
                   @@INIT   r_systeminit
-                                      FF0C6H    00000H
-                  @@INIT   r_cg_cgc   FF0C6H    00000H
+                                      FF0C2H    00000H
+                  @@INIT   r_cg_cgc   FF0C2H    00000H
                   @@INIT   r_cg_cgc_user
-                                      FF0C6H    00000H
+                                      FF0C2H    00000H
                   @@INIT   r_cg_port
-                                      FF0C6H    00000H
+                                      FF0C2H    00000H
                   @@INIT   r_cg_port_user
-                                      FF0C6H    00000H
+                                      FF0C2H    00000H
                   @@INIT   r_cg_serial
-                                      FF0C6H    00000H
+                                      FF0C2H    00000H
                   @@INIT   r_cg_serial_user
-                                      FF0C6H    00000H
+                                      FF0C2H    00000H
                   @@INIT   r_cg_timer
-                                      FF0C6H    00000H
+                                      FF0C2H    00000H
                   @@INIT   r_cg_timer_user
-                                      FF0C6H    00000H
-                  @@INIT   r_cg_it    FF0C6H    00000H
+                                      FF0C2H    00000H
+                  @@INIT   r_cg_it    FF0C2H    00000H
                   @@INIT   r_cg_it_user
-                                      FF0C6H    00000H
-                  @@INIT   delay      FF0C6H    00000H
-                  @@INIT   GY95       FF0C6H    00000H
+                                      FF0C2H    00000H
+                  @@INIT   delay      FF0C2H    00000H
+                  @@INIT   GY95       FF0C2H    00000H
                   @@INIT   attitude_control
-                                      FF0C6H    0003AH
-                  @@INIT   system     FF100H    00002H
-                  @@INIT   px4flow    FF102H    00004H
+                                      FF0C2H    0003AH
+                  @@INIT   system     FF0FCH    00002H
+                  @@INIT   px4flow    FF0FEH    00004H
                   @@INIT   raspberry_pi
-                                      FF106H    00002H
-                  @@INIT   @rom       FF108H    00000H
-         @@INIS                       FF108H    00000H  DSEG UNITP
-                  @@INIS   @cstart    FF108H    00000H
-                  @@INIS   r_main     FF108H    00000H
+                                      FF102H    00002H
+                  @@INIT   @rom       FF104H    00000H
+         @@INIS                       FF104H    00000H  DSEG UNITP
+                  @@INIS   @cstart    FF104H    00000H
+                  @@INIS   r_main     FF104H    00000H
                   @@INIS   r_systeminit
-                                      FF108H    00000H
-                  @@INIS   r_cg_cgc   FF108H    00000H
+                                      FF104H    00000H
+                  @@INIS   r_cg_cgc   FF104H    00000H
                   @@INIS   r_cg_cgc_user
-                                      FF108H    00000H
+                                      FF104H    00000H
                   @@INIS   r_cg_port
-                                      FF108H    00000H
+                                      FF104H    00000H
                   @@INIS   r_cg_port_user
-                                      FF108H    00000H
+                                      FF104H    00000H
                   @@INIS   r_cg_serial
-                                      FF108H    00000H
+                                      FF104H    00000H
                   @@INIS   r_cg_serial_user
-                                      FF108H    00000H
+                                      FF104H    00000H
                   @@INIS   r_cg_timer
-                                      FF108H    00000H
+                                      FF104H    00000H
                   @@INIS   r_cg_timer_user
-                                      FF108H    00000H
-                  @@INIS   r_cg_it    FF108H    00000H
+                                      FF104H    00000H
+                  @@INIS   r_cg_it    FF104H    00000H
                   @@INIS   r_cg_it_user
-                                      FF108H    00000H
-                  @@INIS   delay      FF108H    00000H
-                  @@INIS   GY95       FF108H    00000H
+                                      FF104H    00000H
+                  @@INIS   delay      FF104H    00000H
+                  @@INIS   GY95       FF104H    00000H
                   @@INIS   attitude_control
-                                      FF108H    00000H
-                  @@INIS   system     FF108H    00000H
-                  @@INIS   px4flow    FF108H    00000H
+                                      FF104H    00000H
+                  @@INIS   system     FF104H    00000H
+                  @@INIS   px4flow    FF104H    00000H
                   @@INIS   raspberry_pi
-                                      FF108H    00000H
-                  @@INIS   @rom       FF108H    00000H
-         @@DATS                       FF108H    00000H  DSEG UNITP
-                  @@DATS   @cstart    FF108H    00000H
-                  @@DATS   r_main     FF108H    00000H
+                                      FF104H    00000H
+                  @@INIS   @rom       FF104H    00000H
+         @@DATS                       FF104H    00000H  DSEG UNITP
+                  @@DATS   @cstart    FF104H    00000H
+                  @@DATS   r_main     FF104H    00000H
                   @@DATS   r_systeminit
-                                      FF108H    00000H
-                  @@DATS   r_cg_cgc   FF108H    00000H
+                                      FF104H    00000H
+                  @@DATS   r_cg_cgc   FF104H    00000H
                   @@DATS   r_cg_cgc_user
-                                      FF108H    00000H
+                                      FF104H    00000H
                   @@DATS   r_cg_port
-                                      FF108H    00000H
+                                      FF104H    00000H
                   @@DATS   r_cg_port_user
-                                      FF108H    00000H
+                                      FF104H    00000H
                   @@DATS   r_cg_serial
-                                      FF108H    00000H
+                                      FF104H    00000H
                   @@DATS   r_cg_serial_user
-                                      FF108H    00000H
+                                      FF104H    00000H
                   @@DATS   r_cg_timer
-                                      FF108H    00000H
+                                      FF104H    00000H
                   @@DATS   r_cg_timer_user
-                                      FF108H    00000H
-                  @@DATS   r_cg_it    FF108H    00000H
+                                      FF104H    00000H
+                  @@DATS   r_cg_it    FF104H    00000H
                   @@DATS   r_cg_it_user
-                                      FF108H    00000H
-                  @@DATS   delay      FF108H    00000H
-                  @@DATS   GY95       FF108H    00000H
+                                      FF104H    00000H
+                  @@DATS   delay      FF104H    00000H
+                  @@DATS   GY95       FF104H    00000H
                   @@DATS   attitude_control
-                                      FF108H    00000H
-                  @@DATS   system     FF108H    00000H
-                  @@DATS   px4flow    FF108H    00000H
+                                      FF104H    00000H
+                  @@DATS   system     FF104H    00000H
+                  @@DATS   px4flow    FF104H    00000H
                   @@DATS   raspberry_pi
-                                      FF108H    00000H
-                  @@DATS   @rom       FF108H    00000H
-         @@INITL                      FF108H    00000H  DSEG UNIT64KP
-                  @@INITL  @cstart    FF108H    00000H
-                  @@INITL  r_main     FF108H    00000H
+                                      FF104H    00000H
+                  @@DATS   @rom       FF104H    00000H
+         @@INITL                      FF104H    00000H  DSEG UNIT64KP
+                  @@INITL  @cstart    FF104H    00000H
+                  @@INITL  r_main     FF104H    00000H
                   @@INITL  r_systeminit
-                                      FF108H    00000H
-                  @@INITL  r_cg_cgc   FF108H    00000H
+                                      FF104H    00000H
+                  @@INITL  r_cg_cgc   FF104H    00000H
                   @@INITL  r_cg_cgc_user
-                                      FF108H    00000H
+                                      FF104H    00000H
                   @@INITL  r_cg_port
-                                      FF108H    00000H
+                                      FF104H    00000H
                   @@INITL  r_cg_port_user
-                                      FF108H    00000H
+                                      FF104H    00000H
                   @@INITL  r_cg_serial
-                                      FF108H    00000H
+                                      FF104H    00000H
                   @@INITL  r_cg_serial_user
-                                      FF108H    00000H
+                                      FF104H    00000H
                   @@INITL  r_cg_timer
-                                      FF108H    00000H
+                                      FF104H    00000H
                   @@INITL  r_cg_timer_user
-                                      FF108H    00000H
-                  @@INITL  r_cg_it    FF108H    00000H
+                                      FF104H    00000H
+                  @@INITL  r_cg_it    FF104H    00000H
                   @@INITL  r_cg_it_user
-                                      FF108H    00000H
-                  @@INITL  delay      FF108H    00000H
-                  @@INITL  GY95       FF108H    00000H
+                                      FF104H    00000H
+                  @@INITL  delay      FF104H    00000H
+                  @@INITL  GY95       FF104H    00000H
                   @@INITL  attitude_control
-                                      FF108H    00000H
-                  @@INITL  system     FF108H    00000H
-                  @@INITL  px4flow    FF108H    00000H
+                                      FF104H    00000H
+                  @@INITL  system     FF104H    00000H
+                  @@INITL  px4flow    FF104H    00000H
                   @@INITL  raspberry_pi
-                                      FF108H    00000H
-                  @@INITL  @rom       FF108H    00000H
-         @@DATAL                      FF108H    00000H  DSEG UNIT64KP
-                  @@DATAL  @cstart    FF108H    00000H
-                  @@DATAL  r_main     FF108H    00000H
+                                      FF104H    00000H
+                  @@INITL  @rom       FF104H    00000H
+         @@DATAL                      FF104H    00000H  DSEG UNIT64KP
+                  @@DATAL  @cstart    FF104H    00000H
+                  @@DATAL  r_main     FF104H    00000H
                   @@DATAL  r_systeminit
-                                      FF108H    00000H
-                  @@DATAL  r_cg_cgc   FF108H    00000H
+                                      FF104H    00000H
+                  @@DATAL  r_cg_cgc   FF104H    00000H
                   @@DATAL  r_cg_cgc_user
-                                      FF108H    00000H
+                                      FF104H    00000H
                   @@DATAL  r_cg_port
-                                      FF108H    00000H
+                                      FF104H    00000H
                   @@DATAL  r_cg_port_user
-                                      FF108H    00000H
+                                      FF104H    00000H
                   @@DATAL  r_cg_serial
-                                      FF108H    00000H
+                                      FF104H    00000H
                   @@DATAL  r_cg_serial_user
-                                      FF108H    00000H
+                                      FF104H    00000H
                   @@DATAL  r_cg_timer
-                                      FF108H    00000H
+                                      FF104H    00000H
                   @@DATAL  r_cg_timer_user
-                                      FF108H    00000H
-                  @@DATAL  r_cg_it    FF108H    00000H
+                                      FF104H    00000H
+                  @@DATAL  r_cg_it    FF104H    00000H
                   @@DATAL  r_cg_it_user
-                                      FF108H    00000H
-                  @@DATAL  delay      FF108H    00000H
-                  @@DATAL  GY95       FF108H    00000H
+                                      FF104H    00000H
+                  @@DATAL  delay      FF104H    00000H
+                  @@DATAL  GY95       FF104H    00000H
                   @@DATAL  attitude_control
-                                      FF108H    00000H
-                  @@DATAL  system     FF108H    00000H
-                  @@DATAL  px4flow    FF108H    00000H
+                                      FF104H    00000H
+                  @@DATAL  system     FF104H    00000H
+                  @@DATAL  px4flow    FF104H    00000H
                   @@DATAL  raspberry_pi
-                                      FF108H    00000H
-                  @@DATAL  @rom       FF108H    00000H
-         @@BITS                       FF108H    00000H  BSEG
-                  @@BITS   @cstart    FF108H.0  00000H.0
-                  @@BITS   r_main     FF108H.0  00000H.0
+                                      FF104H    00000H
+                  @@DATAL  @rom       FF104H    00000H
+         @@BITS                       FF104H    00000H  BSEG
+                  @@BITS   @cstart    FF104H.0  00000H.0
+                  @@BITS   r_main     FF104H.0  00000H.0
                   @@BITS   r_systeminit
-                                      FF108H.0  00000H.0
-                  @@BITS   r_cg_cgc   FF108H.0  00000H.0
+                                      FF104H.0  00000H.0
+                  @@BITS   r_cg_cgc   FF104H.0  00000H.0
                   @@BITS   r_cg_cgc_user
-                                      FF108H.0  00000H.0
+                                      FF104H.0  00000H.0
                   @@BITS   r_cg_port
-                                      FF108H.0  00000H.0
+                                      FF104H.0  00000H.0
                   @@BITS   r_cg_port_user
-                                      FF108H.0  00000H.0
+                                      FF104H.0  00000H.0
                   @@BITS   r_cg_serial
-                                      FF108H.0  00000H.0
+                                      FF104H.0  00000H.0
                   @@BITS   r_cg_serial_user
-                                      FF108H.0  00000H.0
+                                      FF104H.0  00000H.0
                   @@BITS   r_cg_timer
-                                      FF108H.0  00000H.0
+                                      FF104H.0  00000H.0
                   @@BITS   r_cg_timer_user
-                                      FF108H.0  00000H.0
-                  @@BITS   r_cg_it    FF108H.0  00000H.0
+                                      FF104H.0  00000H.0
+                  @@BITS   r_cg_it    FF104H.0  00000H.0
                   @@BITS   r_cg_it_user
-                                      FF108H.0  00000H.0
-                  @@BITS   delay      FF108H.0  00000H.0
-                  @@BITS   GY95       FF108H.0  00000H.0
+                                      FF104H.0  00000H.0
+                  @@BITS   delay      FF104H.0  00000H.0
+                  @@BITS   GY95       FF104H.0  00000H.0
                   @@BITS   attitude_control
-                                      FF108H.0  00000H.0
-                  @@BITS   system     FF108H.0  00000H.0
-                  @@BITS   px4flow    FF108H.0  00000H.0
+                                      FF104H.0  00000H.0
+                  @@BITS   system     FF104H.0  00000H.0
+                  @@BITS   px4flow    FF104H.0  00000H.0
                   @@BITS   raspberry_pi
-                                      FF108H.0  00000H.0
-* gap *                               FF108H    00DCCH
+                                      FF104H.0  00000H.0
+* gap *                               FF104H    00DD0H
          @@SEGREG                     FFED4H    00004H  DSEG AT
                   @@SEGREG @SEGREG    FFED4H    00004H
          @@RTARG0                     FFED8H    00008H  DSEG AT

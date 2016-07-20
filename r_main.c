@@ -68,7 +68,7 @@ void main(void)
     start();
     while (1U)
     {
-        function();
+        NOP();
     }
     /* End user code. Do not edit comment generated here */
 }

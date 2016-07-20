@@ -573,7 +573,7 @@ cl0rmf.lib
       <NumberOfLinesPerPage-DefaultValue>0</NumberOfLinesPerPage-DefaultValue>
       <TabWidth-DefaultValue>8</TabWidth-DefaultValue>
       <IsLockedByUser>False</IsLockedByUser>
-      <TimeTagModified--0>-8587577399663325158</TimeTagModified--0>
+      <TimeTagModified--0>-8587326229714333389</TimeTagModified--0>
       <AdditionalIncludePaths-0 />
       <AssemblyFile-0>NotOutput</AssemblyFile-0>
       <BitFieldMostSignificantBit-0>False</BitFieldMostSignificantBit-0>
@@ -592,7 +592,7 @@ cl0rmf.lib
       <StructureMembersPacking-0>False</StructureMembersPacking-0>
       <SystemIncludePaths-0 />
       <WarningLevel-0>NormalOutput</WarningLevel-0>
-      <ChineseCharactersCodeOnSourceFiles-0>Unspecified</ChineseCharactersCodeOnSourceFiles-0>
+      <ChineseCharactersCodeOnSourceFiles-0>EucJP</ChineseCharactersCodeOnSourceFiles-0>
       <ExpansionOfDefinePreprocessDirective-0>False</ExpansionOfDefinePreprocessDirective-0>
       <MacroDefinitions-0 />
       <OtherAdditionalOptions-0 />
@@ -3548,7 +3548,7 @@ cl0rmf.lib
     &lt;PIOR4Value Name="PIOR4Value" Text="0" /&gt;
     &lt;PIOR5Value Name="PIOR5Value" Text="0" /&gt;
     &lt;ProjectName Name="PrjName" Text="WTF-beta" /&gt;
-    &lt;ProjectPath Name="PrjPath" Text="F:\文档\OneDrive\Cubesuite+\WTF - beta" /&gt;
+    &lt;ProjectPath Name="PrjPath" Text="F:\文档\GitHub\Airdrop" /&gt;
     &lt;ProjectKind Name="PrjKind" Text="Project78K0R" /&gt;
     &lt;DeviceName Name="DeviceName" Fixed="" Text="RL78G13" /&gt;
     &lt;MCUName Name="MCUName" Text="RL78G13_64pin" /&gt;
@@ -4668,7 +4668,7 @@ cl0rmf.lib
         &lt;cg_security7 Name="cg_security7" Value="00" /&gt;
         &lt;cg_security5 Name="cg_security5" Value="00" /&gt;
         &lt;cg_crc_area Name="cg_crc_area" Value="00" /&gt;
-        &lt;ocdstart Name="ocdstart" Value="0FE00" /&gt;
+        &lt;rrm Name="rrm" Value="0FE00" /&gt;
         &lt;cg_security3 Name="cg_security3" Value="00" /&gt;
         &lt;cg_security0 Name="cg_security0" Value="00" /&gt;
         &lt;cg_security1 Name="cg_security1" Value="00" /&gt;
@@ -4678,13 +4678,13 @@ cl0rmf.lib
         &lt;cg_option Name="cg_option" Value="84" /&gt;
         &lt;cg_security8 Name="cg_security8" Value="00" /&gt;
         &lt;cg_security6 Name="cg_security6" Value="00" /&gt;
-        &lt;cg_security4 Name="cg_security4" Value="00" /&gt;
+        &lt;ocdstart Name="ocdstart" Value="0FE00" /&gt;
         &lt;cg_onchip Name="cg_onchip" Value="" /&gt;
         &lt;cg_security2 Name="cg_security2" Value="00" /&gt;
         &lt;cg_iawctl_value Name="cg_iawctl_value" Value="00" /&gt;
         &lt;lvi_option Name="lvi_option" Value="FF" /&gt;
         &lt;wdt_option Name="wdt_option" Value="EF" /&gt;
-        &lt;rrm Name="rrm" Value="0FE00" /&gt;
+        &lt;cg_security4 Name="cg_security4" Value="00" /&gt;
       &lt;/GlobleUserTag&gt;
     &lt;/TAG&gt;
   &lt;/DIR&gt;

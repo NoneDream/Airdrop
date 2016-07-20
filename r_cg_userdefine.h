@@ -44,7 +44,7 @@ typedef struct
 	float neihuan_p;
 	float neihuan_i;
 	float neihuan_d;
-	int output_limit;
+	int i_limit;//积分项限幅
 }ppid;
 
 typedef struct
