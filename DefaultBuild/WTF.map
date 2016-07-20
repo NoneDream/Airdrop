@@ -1,0 +1,634 @@
+
+
+
+78K0R Linker W1.70                            Date:26 Jan 2016 Page:   1
+
+Command:   -yC:\Program Files (x86)\Renesas Electronics\CubeSuite+\Devic
+           e\RL78\Devicefile -_msgoff -oDefaultBuild\WTF.lmf -gi00000000
+           000000000000h -go84h,0FE00h,512 -gb0EFFFE8H -mi0 -s -pDefault
+           Build\WTF.map C:\Program Files (x86)\Renesas Electronics\Cube
+           Suite+\CA78K0R\V1.60\lib78k0r\s0rll.rel DefaultBuild\r_main.r
+           el DefaultBuild\r_systeminit.rel DefaultBuild\r_cg_cgc.rel De
+           faultBuild\r_cg_cgc_user.rel DefaultBuild\r_cg_port.rel Defau
+           ltBuild\r_cg_port_user.rel DefaultBuild\r_cg_serial.rel Defau
+           ltBuild\r_cg_serial_user.rel DefaultBuild\r_cg_timer.rel Defa
+           ultBuild\r_cg_timer_user.rel DefaultBuild\r_cg_it.rel Default
+           Build\r_cg_it_user.rel DefaultBuild\delay.rel DefaultBuild\GY
+           95.rel DefaultBuild\remote_control.rel DefaultBuild\attitude_
+           control.rel DefaultBuild\system.rel DefaultBuild\hight.rel -b
+           cl0ram.lib -bcl0rm.lib -bcl0rmf.lib -iC:\Program Files (x86)\
+           Renesas Electronics\CubeSuite+\CA78K0R\V1.60\lib78k0r
+Para-file:
+Out-file:  DefaultBuild\WTF.lmf
+Map-file:  DefaultBuild\WTF.map
+Direc-file:
+Directive:
+
+
+*** Link information ***
+
+    51 output segment(s)
+ 1EB4H byte(s) real data
+  1427 symbol(s) defined
+
+
+*** Memory map ***
+
+
+  SPACE=REGULAR
+
+  MEMORY=ROM
+  BASE ADDRESS=00000H   SIZE=10000H
+         OUTPUT   INPUT    INPUT      BASE      SIZE
+         SEGMENT  SEGMENT  MODULE     ADDRESS
+         @@VECT00                     00000H    00002H  CSEG AT
+                  @@VECT00 @cstart    00000H    00002H
+         @@CNSTL                      00002H    00000H  CSEG PAGE64KP
+                  @@CNSTL  @cstart    00002H    00000H
+         @@CNSTL                      00002H    00000H  CSEG PAGE64KP
+                  @@CNSTL  r_main     00002H    00000H
+         @@CNSTL                      00002H    00000H  CSEG PAGE64KP
+                  @@CNSTL  r_systeminit
+                                      00002H    00000H
+         @@CNSTL                      00002H    00000H  CSEG PAGE64KP
+                  @@CNSTL  r_cg_cgc   00002H    00000H
+         @@CNSTL                      00002H    00000H  CSEG PAGE64KP
+                  @@CNSTL  r_cg_cgc_user
+                                      00002H    00000H
+         @@CNSTL                      00002H    00000H  CSEG PAGE64KP
+                  @@CNSTL  r_cg_port
+                                      00002H    00000H
+         @@CNSTL                      00002H    00000H  CSEG PAGE64KP
+                  @@CNSTL  r_cg_port_user
+                                      00002H    00000H
+         @@CNSTL                      00002H    00000H  CSEG PAGE64KP
+                  @@CNSTL  r_cg_serial
+                                      00002H    00000H
+         @@CNSTL                      00002H    00000H  CSEG PAGE64KP
+                  @@CNSTL  r_cg_serial_user
+                                      00002H    00000H
+         @@CNSTL                      00002H    00000H  CSEG PAGE64KP
+                  @@CNSTL  r_cg_timer
+                                      00002H    00000H
+         @@CNSTL                      00002H    00000H  CSEG PAGE64KP
+                  @@CNSTL  r_cg_timer_user
+                                      00002H    00000H
+         @@CNSTL                      00002H    00000H  CSEG PAGE64KP
+                  @@CNSTL  r_cg_it    00002H    00000H
+         @@CNSTL                      00002H    00000H  CSEG PAGE64KP
+                  @@CNSTL  r_cg_it_user
+                                      00002H    00000H
+         @@CNSTL                      00002H    00000H  CSEG PAGE64KP
+                  @@CNSTL  delay      00002H    00000H
+         @@CNSTL                      00002H    00000H  CSEG PAGE64KP
+                  @@CNSTL  GY95       00002H    00000H
+         @@CNSTL                      00002H    00000H  CSEG PAGE64KP
+                  @@CNSTL  remote_control
+                                      00002H    00000H
+         @@CNSTL                      00002H    00000H  CSEG PAGE64KP
+                  @@CNSTL  attitude_control
+                                      00002H    00000H
+         @@CNSTL                      00002H    00000H  CSEG PAGE64KP
+                  @@CNSTL  system     00002H    00000H
+         @@CNSTL                      00002H    00000H  CSEG PAGE64KP
+                  @@CNSTL  hight      00002H    00000H
+         @@RLINIT                     00002H    00000H  CSEG UNIT64KP
+                  @@RLINIT @cstart    00002H    00000H
+                  @@RLINIT r_main     00002H    00000H
+                  @@RLINIT r_systeminit
+                                      00002H    00000H
+                  @@RLINIT r_cg_cgc   00002H    00000H
+                  @@RLINIT r_cg_cgc_user
+                                      00002H    00000H
+                  @@RLINIT r_cg_port
+                                      00002H    00000H
+                  @@RLINIT r_cg_port_user
+                                      00002H    00000H
+                  @@RLINIT r_cg_serial
+                                      00002H    00000H
+                  @@RLINIT r_cg_serial_user
+                                      00002H    00000H
+                  @@RLINIT r_cg_timer
+                                      00002H    00000H
+                  @@RLINIT r_cg_timer_user
+                                      00002H    00000H
+                  @@RLINIT r_cg_it    00002H    00000H
+                  @@RLINIT r_cg_it_user
+                                      00002H    00000H
+                  @@RLINIT delay      00002H    00000H
+                  @@RLINIT GY95       00002H    00000H
+                  @@RLINIT remote_control
+                                      00002H    00000H
+                  @@RLINIT attitude_control
+                                      00002H    00000H
+                  @@RLINIT system     00002H    00000H
+                  @@RLINIT hight      00002H    00000H
+                  @@RLINIT @rom       00002H    00000H
+         @@R_INIS                     00002H    00000H  CSEG UNIT64KP
+                  @@R_INIS @cstart    00002H    00000H
+                  @@R_INIS r_main     00002H    00000H
+                  @@R_INIS r_systeminit
+                                      00002H    00000H
+                  @@R_INIS r_cg_cgc   00002H    00000H
+                  @@R_INIS r_cg_cgc_user
+                                      00002H    00000H
+                  @@R_INIS r_cg_port
+                                      00002H    00000H
+                  @@R_INIS r_cg_port_user
+                                      00002H    00000H
+                  @@R_INIS r_cg_serial
+                                      00002H    00000H
+                  @@R_INIS r_cg_serial_user
+                                      00002H    00000H
+                  @@R_INIS r_cg_timer
+                                      00002H    00000H
+                  @@R_INIS r_cg_timer_user
+                                      00002H    00000H
+                  @@R_INIS r_cg_it    00002H    00000H
+                  @@R_INIS r_cg_it_user
+                                      00002H    00000H
+                  @@R_INIS delay      00002H    00000H
+                  @@R_INIS GY95       00002H    00000H
+                  @@R_INIS remote_control
+                                      00002H    00000H
+                  @@R_INIS attitude_control
+                                      00002H    00000H
+                  @@R_INIS system     00002H    00000H
+                  @@R_INIS hight      00002H    00000H
+                  @@R_INIS @rom       00002H    00000H
+         @@CALT                       00002H    00000H  CSEG
+                  @@CALT   @cstart    00002H    00000H
+                  @@CALT   r_main     00002H    00000H
+                  @@CALT   r_systeminit
+                                      00002H    00000H
+                  @@CALT   r_cg_cgc   00002H    00000H
+                  @@CALT   r_cg_cgc_user
+                                      00002H    00000H
+                  @@CALT   r_cg_port
+                                      00002H    00000H
+                  @@CALT   r_cg_port_user
+                                      00002H    00000H
+                  @@CALT   r_cg_serial
+                                      00002H    00000H
+                  @@CALT   r_cg_serial_user
+                                      00002H    00000H
+                  @@CALT   r_cg_timer
+                                      00002H    00000H
+                  @@CALT   r_cg_timer_user
+                                      00002H    00000H
+                  @@CALT   r_cg_it    00002H    00000H
+                  @@CALT   r_cg_it_user
+                                      00002H    00000H
+                  @@CALT   delay      00002H    00000H
+                  @@CALT   GY95       00002H    00000H
+                  @@CALT   remote_control
+                                      00002H    00000H
+                  @@CALT   attitude_control
+                                      00002H    00000H
+                  @@CALT   system     00002H    00000H
+                  @@CALT   hight      00002H    00000H
+         ??NMIROM                     00002H    00002H  CSEG
+         @@R_INIT                     00004H    00010H  CSEG UNIT64KP
+                  @@R_INIT @cstart    00004H    00000H
+                  @@R_INIT r_main     00004H    00000H
+                  @@R_INIT r_systeminit
+                                      00004H    00000H
+                  @@R_INIT r_cg_cgc   00004H    00000H
+                  @@R_INIT r_cg_cgc_user
+                                      00004H    00000H
+                  @@R_INIT r_cg_port
+                                      00004H    00000H
+                  @@R_INIT r_cg_port_user
+                                      00004H    00000H
+                  @@R_INIT r_cg_serial
+                                      00004H    00000H
+                  @@R_INIT r_cg_serial_user
+                                      00004H    00000H
+                  @@R_INIT r_cg_timer
+                                      00004H    00000H
+                  @@R_INIT r_cg_timer_user
+                                      00004H    00008H
+                  @@R_INIT r_cg_it    0000CH    00000H
+                  @@R_INIT r_cg_it_user
+                                      0000CH    00000H
+                  @@R_INIT delay      0000CH    00000H
+                  @@R_INIT GY95       0000CH    00000H
+                  @@R_INIT remote_control
+                                      0000CH    00000H
+                  @@R_INIT attitude_control
+                                      0000CH    00000H
+                  @@R_INIT system     0000CH    00000H
+                  @@R_INIT hight      0000CH    00008H
+                  @@R_INIT @rom       00014H    00000H
+* gap *                               00014H    0000AH
+         @@VECT1E                     0001EH    00004H  CSEG AT
+                  @@VECT1E r_cg_serial_user
+                                      0001EH    00004H
+* gap *                               00022H    00002H
+         @@VECT24                     00024H    00004H  CSEG AT
+                  @@VECT24 r_cg_serial_user
+                                      00024H    00004H
+* gap *                               00028H    00002H
+         @@VECT2A                     0002AH    00002H  CSEG AT
+                  @@VECT2A r_cg_serial_user
+                                      0002AH    00002H
+         @@VECT2C                     0002CH    00002H  CSEG AT
+                  @@VECT2C r_cg_timer_user
+                                      0002CH    00002H
+* gap *                               0002EH    0000AH
+         @@VECT38                     00038H    00002H  CSEG AT
+                  @@VECT38 r_cg_it_user
+                                      00038H    00002H
+* gap *                               0003AH    0000AH
+         @@VECT44                     00044H    00006H  CSEG AT
+                  @@VECT44 r_cg_timer_user
+                                      00044H    00006H
+* gap *                               0004AH    00076H
+         ?CSEGOB0                     000C0H    00004H  CSEG OPT_BYTE
+         @@CODE                       000C4H    00000H  CSEG BASE
+                  @@CODE   r_main     000C4H    00000H
+                  @@CODE   r_systeminit
+                                      000C4H    00000H
+                  @@CODE   r_cg_cgc   000C4H    00000H
+                  @@CODE   r_cg_cgc_user
+                                      000C4H    00000H
+                  @@CODE   r_cg_port
+                                      000C4H    00000H
+                  @@CODE   r_cg_port_user
+                                      000C4H    00000H
+                  @@CODE   r_cg_serial
+                                      000C4H    00000H
+                  @@CODE   r_cg_serial_user
+                                      000C4H    00000H
+                  @@CODE   r_cg_timer
+                                      000C4H    00000H
+                  @@CODE   r_cg_timer_user
+                                      000C4H    00000H
+                  @@CODE   r_cg_it    000C4H    00000H
+                  @@CODE   r_cg_it_user
+                                      000C4H    00000H
+                  @@CODE   delay      000C4H    00000H
+                  @@CODE   GY95       000C4H    00000H
+                  @@CODE   remote_control
+                                      000C4H    00000H
+                  @@CODE   attitude_control
+                                      000C4H    00000H
+                  @@CODE   system     000C4H    00000H
+                  @@CODE   hight      000C4H    00000H
+         ?CSEGSI                      000C4H    0000AH  CSEG
+         ?OCDSTAD                     000CEH    0000AH  CSEG
+         @@LCODE                      000D8H    00792H  CSEG BASE
+                  @@LCODE  @cstart    000D8H    000ADH
+                  @@LCODE  @ludiv     00185H    0003FH
+                  @@LCODE  m_fmul     001C4H    0012BH
+                  @@LCODE  m_fdiv     002EFH    001B8H
+                  @@LCODE  @ladd      004A7H    0000FH
+                  @@LCODE  m_fcom1    004B6H    000CFH
+                  @@LCODE  m_fcom5    00585H    0002AH
+                  @@LCODE  m_fcom6    005AFH    0001FH
+                  @@LCODE  m_fadd     005CEH    0013AH
+                  @@LCODE  m_fsub     00708H    00014H
+                  @@LCODE  m_fcmp     0071CH    00073H
+                  @@LCODE  m_ftols    0078FH    00078H
+                  @@LCODE  m_lstof    00807H    00016H
+                  @@LCODE  m_lutof    0081DH    0004DH
+         @@BASE                       0086AH    002FFH  CSEG BASE
+                  @@BASE   r_main     0086AH    00000H
+                  @@BASE   r_systeminit
+                                      0086AH    00000H
+                  @@BASE   r_cg_cgc   0086AH    00000H
+                  @@BASE   r_cg_cgc_user
+                                      0086AH    00000H
+                  @@BASE   r_cg_port
+                                      0086AH    00000H
+                  @@BASE   r_cg_port_user
+                                      0086AH    00000H
+                  @@BASE   r_cg_serial
+                                      0086AH    00000H
+                  @@BASE   r_cg_serial_user
+                                      0086AH    001E3H
+                  @@BASE   r_cg_timer
+                                      00A4DH    00000H
+                  @@BASE   r_cg_timer_user
+                                      00A4DH    000DBH
+                  @@BASE   r_cg_it    00B28H    00000H
+                  @@BASE   r_cg_it_user
+                                      00B28H    00041H
+                  @@BASE   delay      00B69H    00000H
+                  @@BASE   GY95       00B69H    00000H
+                  @@BASE   remote_control
+                                      00B69H    00000H
+                  @@BASE   attitude_control
+                                      00B69H    00000H
+                  @@BASE   system     00B69H    00000H
+                  @@BASE   hight      00B69H    00000H
+* gap *                               00B69H    00001H
+         @@CNSTL                      00B6AH    000CEH  CSEG PAGE64KP
+                  @@CNSTL  m_fcom5    00B6AH    000CEH
+         @@CODEL                      00C38H    010AFH  CSEG
+                  @@CODEL  r_main     00C38H    00010H
+                  @@CODEL  r_systeminit
+                                      00C48H    0002EH
+                  @@CODEL  r_cg_cgc   00C76H    00017H
+                  @@CODEL  r_cg_cgc_user
+                                      00C8DH    0000CH
+                  @@CODEL  r_cg_port
+                                      00C99H    00013H
+                  @@CODEL  r_cg_port_user
+                                      00CACH    00000H
+                  @@CODEL  r_cg_serial
+                                      00CACH    00325H
+                  @@CODEL  r_cg_serial_user
+                                      00FD1H    000D1H
+                  @@CODEL  r_cg_timer
+                                      010A2H    002F8H
+                  @@CODEL  r_cg_timer_user
+                                      0139AH    00000H
+                  @@CODEL  r_cg_it    0139AH    00033H
+                  @@CODEL  r_cg_it_user
+                                      013CDH    00000H
+                  @@CODEL  delay      013CDH    0003FH
+                  @@CODEL  GY95       0140CH    00130H
+                  @@CODEL  remote_control
+                                      0153CH    0015BH
+                  @@CODEL  attitude_control
+                                      01697H    00530H
+                  @@CODEL  system     01BC7H    00009H
+                  @@CODEL  hight      01BD0H    00117H
+         @@LCODEL                     01CE7H    00060H  CSEG
+                  @@LCODEL @stkinit   01CE7H    00044H
+                  @@LCODEL exit       01D2BH    0001CH
+* gap *                               01D47H    002B9H
+         @@CNST                       02000H    00006H  CSEG MIRRORP
+                  @@CNST   @cstart    02000H    00000H
+                  @@CNST   r_main     02000H    00000H
+                  @@CNST   r_systeminit
+                                      02000H    00000H
+                  @@CNST   r_cg_cgc   02000H    00000H
+                  @@CNST   r_cg_cgc_user
+                                      02000H    00000H
+                  @@CNST   r_cg_port
+                                      02000H    00000H
+                  @@CNST   r_cg_port_user
+                                      02000H    00000H
+                  @@CNST   r_cg_serial
+                                      02000H    00000H
+                  @@CNST   r_cg_serial_user
+                                      02000H    00000H
+                  @@CNST   r_cg_timer
+                                      02000H    00000H
+                  @@CNST   r_cg_timer_user
+                                      02000H    00000H
+                  @@CNST   r_cg_it    02000H    00000H
+                  @@CNST   r_cg_it_user
+                                      02000H    00000H
+                  @@CNST   delay      02000H    00000H
+                  @@CNST   GY95       02000H    00006H
+                  @@CNST   remote_control
+                                      02006H    00000H
+                  @@CNST   attitude_control
+                                      02006H    00000H
+                  @@CNST   system     02006H    00000H
+                  @@CNST   hight      02006H    00000H
+* gap *                               02006H    0DDFAH
+         ??OCDROM                     0FE00H    00200H  CSEG
+
+  MEMORY=RAM
+  BASE ADDRESS=FEF00H   SIZE=01100H
+         OUTPUT   INPUT    INPUT      BASE      SIZE
+         SEGMENT  SEGMENT  MODULE     ADDRESS
+         @@DATA                       FEF00H    001ECH  DSEG BASEP
+                  @@DATA   @cstart    FEF00H    000BAH
+                  @@DATA   r_main     FEFBAH    00000H
+                  @@DATA   r_systeminit
+                                      FEFBAH    00000H
+                  @@DATA   r_cg_cgc   FEFBAH    00000H
+                  @@DATA   r_cg_cgc_user
+                                      FEFBAH    00000H
+                  @@DATA   r_cg_port
+                                      FEFBAH    00000H
+                  @@DATA   r_cg_port_user
+                                      FEFBAH    00000H
+                  @@DATA   r_cg_serial
+                                      FEFBAH    00020H
+                  @@DATA   r_cg_serial_user
+                                      FEFDAH    00006H
+                  @@DATA   r_cg_timer
+                                      FEFE0H    00000H
+                  @@DATA   r_cg_timer_user
+                                      FEFE0H    00000H
+                  @@DATA   r_cg_it    FEFE0H    00000H
+                  @@DATA   r_cg_it_user
+                                      FEFE0H    00000H
+                  @@DATA   delay      FEFE0H    00000H
+                  @@DATA   GY95       FEFE0H    00024H
+                  @@DATA   remote_control
+                                      FF004H    0005CH
+                  @@DATA   attitude_control
+                                      FF060H    0006EH
+                  @@DATA   system     FF0CEH    00000H
+                  @@DATA   hight      FF0CEH    0001EH
+                  @@DATA   @rom       FF0ECH    00000H
+         @@INIT                       FF0ECH    00010H  DSEG BASEP
+                  @@INIT   @cstart    FF0ECH    00000H
+                  @@INIT   r_main     FF0ECH    00000H
+                  @@INIT   r_systeminit
+                                      FF0ECH    00000H
+                  @@INIT   r_cg_cgc   FF0ECH    00000H
+                  @@INIT   r_cg_cgc_user
+                                      FF0ECH    00000H
+                  @@INIT   r_cg_port
+                                      FF0ECH    00000H
+                  @@INIT   r_cg_port_user
+                                      FF0ECH    00000H
+                  @@INIT   r_cg_serial
+                                      FF0ECH    00000H
+                  @@INIT   r_cg_serial_user
+                                      FF0ECH    00000H
+                  @@INIT   r_cg_timer
+                                      FF0ECH    00000H
+                  @@INIT   r_cg_timer_user
+                                      FF0ECH    00008H
+                  @@INIT   r_cg_it    FF0F4H    00000H
+                  @@INIT   r_cg_it_user
+                                      FF0F4H    00000H
+                  @@INIT   delay      FF0F4H    00000H
+                  @@INIT   GY95       FF0F4H    00000H
+                  @@INIT   remote_control
+                                      FF0F4H    00000H
+                  @@INIT   attitude_control
+                                      FF0F4H    00000H
+                  @@INIT   system     FF0F4H    00000H
+                  @@INIT   hight      FF0F4H    00008H
+                  @@INIT   @rom       FF0FCH    00000H
+         @@INIS                       FF0FCH    00000H  DSEG UNITP
+                  @@INIS   @cstart    FF0FCH    00000H
+                  @@INIS   r_main     FF0FCH    00000H
+                  @@INIS   r_systeminit
+                                      FF0FCH    00000H
+                  @@INIS   r_cg_cgc   FF0FCH    00000H
+                  @@INIS   r_cg_cgc_user
+                                      FF0FCH    00000H
+                  @@INIS   r_cg_port
+                                      FF0FCH    00000H
+                  @@INIS   r_cg_port_user
+                                      FF0FCH    00000H
+                  @@INIS   r_cg_serial
+                                      FF0FCH    00000H
+                  @@INIS   r_cg_serial_user
+                                      FF0FCH    00000H
+                  @@INIS   r_cg_timer
+                                      FF0FCH    00000H
+                  @@INIS   r_cg_timer_user
+                                      FF0FCH    00000H
+                  @@INIS   r_cg_it    FF0FCH    00000H
+                  @@INIS   r_cg_it_user
+                                      FF0FCH    00000H
+                  @@INIS   delay      FF0FCH    00000H
+                  @@INIS   GY95       FF0FCH    00000H
+                  @@INIS   remote_control
+                                      FF0FCH    00000H
+                  @@INIS   attitude_control
+                                      FF0FCH    00000H
+                  @@INIS   system     FF0FCH    00000H
+                  @@INIS   hight      FF0FCH    00000H
+                  @@INIS   @rom       FF0FCH    00000H
+         @@DATS                       FF0FCH    00000H  DSEG UNITP
+                  @@DATS   @cstart    FF0FCH    00000H
+                  @@DATS   r_main     FF0FCH    00000H
+                  @@DATS   r_systeminit
+                                      FF0FCH    00000H
+                  @@DATS   r_cg_cgc   FF0FCH    00000H
+                  @@DATS   r_cg_cgc_user
+                                      FF0FCH    00000H
+                  @@DATS   r_cg_port
+                                      FF0FCH    00000H
+                  @@DATS   r_cg_port_user
+                                      FF0FCH    00000H
+                  @@DATS   r_cg_serial
+                                      FF0FCH    00000H
+                  @@DATS   r_cg_serial_user
+                                      FF0FCH    00000H
+                  @@DATS   r_cg_timer
+                                      FF0FCH    00000H
+                  @@DATS   r_cg_timer_user
+                                      FF0FCH    00000H
+                  @@DATS   r_cg_it    FF0FCH    00000H
+                  @@DATS   r_cg_it_user
+                                      FF0FCH    00000H
+                  @@DATS   delay      FF0FCH    00000H
+                  @@DATS   GY95       FF0FCH    00000H
+                  @@DATS   remote_control
+                                      FF0FCH    00000H
+                  @@DATS   attitude_control
+                                      FF0FCH    00000H
+                  @@DATS   system     FF0FCH    00000H
+                  @@DATS   hight      FF0FCH    00000H
+                  @@DATS   @rom       FF0FCH    00000H
+         @@INITL                      FF0FCH    00000H  DSEG UNIT64KP
+                  @@INITL  @cstart    FF0FCH    00000H
+                  @@INITL  r_main     FF0FCH    00000H
+                  @@INITL  r_systeminit
+                                      FF0FCH    00000H
+                  @@INITL  r_cg_cgc   FF0FCH    00000H
+                  @@INITL  r_cg_cgc_user
+                                      FF0FCH    00000H
+                  @@INITL  r_cg_port
+                                      FF0FCH    00000H
+                  @@INITL  r_cg_port_user
+                                      FF0FCH    00000H
+                  @@INITL  r_cg_serial
+                                      FF0FCH    00000H
+                  @@INITL  r_cg_serial_user
+                                      FF0FCH    00000H
+                  @@INITL  r_cg_timer
+                                      FF0FCH    00000H
+                  @@INITL  r_cg_timer_user
+                                      FF0FCH    00000H
+                  @@INITL  r_cg_it    FF0FCH    00000H
+                  @@INITL  r_cg_it_user
+                                      FF0FCH    00000H
+                  @@INITL  delay      FF0FCH    00000H
+                  @@INITL  GY95       FF0FCH    00000H
+                  @@INITL  remote_control
+                                      FF0FCH    00000H
+                  @@INITL  attitude_control
+                                      FF0FCH    00000H
+                  @@INITL  system     FF0FCH    00000H
+                  @@INITL  hight      FF0FCH    00000H
+                  @@INITL  @rom       FF0FCH    00000H
+         @@DATAL                      FF0FCH    00000H  DSEG UNIT64KP
+                  @@DATAL  @cstart    FF0FCH    00000H
+                  @@DATAL  r_main     FF0FCH    00000H
+                  @@DATAL  r_systeminit
+                                      FF0FCH    00000H
+                  @@DATAL  r_cg_cgc   FF0FCH    00000H
+                  @@DATAL  r_cg_cgc_user
+                                      FF0FCH    00000H
+                  @@DATAL  r_cg_port
+                                      FF0FCH    00000H
+                  @@DATAL  r_cg_port_user
+                                      FF0FCH    00000H
+                  @@DATAL  r_cg_serial
+                                      FF0FCH    00000H
+                  @@DATAL  r_cg_serial_user
+                                      FF0FCH    00000H
+                  @@DATAL  r_cg_timer
+                                      FF0FCH    00000H
+                  @@DATAL  r_cg_timer_user
+                                      FF0FCH    00000H
+                  @@DATAL  r_cg_it    FF0FCH    00000H
+                  @@DATAL  r_cg_it_user
+                                      FF0FCH    00000H
+                  @@DATAL  delay      FF0FCH    00000H
+                  @@DATAL  GY95       FF0FCH    00000H
+                  @@DATAL  remote_control
+                                      FF0FCH    00000H
+                  @@DATAL  attitude_control
+                                      FF0FCH    00000H
+                  @@DATAL  system     FF0FCH    00000H
+                  @@DATAL  hight      FF0FCH    00000H
+                  @@DATAL  @rom       FF0FCH    00000H
+         @@BITS                       FF0FCH    00000H  BSEG
+                  @@BITS   @cstart    FF0FCH.0  00000H.0
+                  @@BITS   r_main     FF0FCH.0  00000H.0
+                  @@BITS   r_systeminit
+                                      FF0FCH.0  00000H.0
+                  @@BITS   r_cg_cgc   FF0FCH.0  00000H.0
+                  @@BITS   r_cg_cgc_user
+                                      FF0FCH.0  00000H.0
+                  @@BITS   r_cg_port
+                                      FF0FCH.0  00000H.0
+                  @@BITS   r_cg_port_user
+                                      FF0FCH.0  00000H.0
+                  @@BITS   r_cg_serial
+                                      FF0FCH.0  00000H.0
+                  @@BITS   r_cg_serial_user
+                                      FF0FCH.0  00000H.0
+                  @@BITS   r_cg_timer
+                                      FF0FCH.0  00000H.0
+                  @@BITS   r_cg_timer_user
+                                      FF0FCH.0  00000H.0
+                  @@BITS   r_cg_it    FF0FCH.0  00000H.0
+                  @@BITS   r_cg_it_user
+                                      FF0FCH.0  00000H.0
+                  @@BITS   delay      FF0FCH.0  00000H.0
+                  @@BITS   GY95       FF0FCH.0  00000H.0
+                  @@BITS   remote_control
+                                      FF0FCH.0  00000H.0
+                  @@BITS   attitude_control
+                                      FF0FCH.0  00000H.0
+                  @@BITS   system     FF0FCH.0  00000H.0
+                  @@BITS   hight      FF0FCH.0  00000H.0
+* gap *                               FF0FCH    00DD8H
+         @@SEGREG                     FFED4H    00004H  DSEG AT
+                  @@SEGREG @SEGREG    FFED4H    00004H
+         @@RTARG0                     FFED8H    00008H  DSEG AT
+                  @@RTARG0 @RTARG0    FFED8H    00008H
+* gap *                               FFEE0H    00020H
+* gap (Not Free Area) *               FFF00H    00100H
+
+
+ Target chip : R5F100LE
+ Device file : V1.12
+
