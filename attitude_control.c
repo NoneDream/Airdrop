@@ -56,8 +56,8 @@ void cal_mot_all(void)
 	
 	//获取目标值和当前数据
 	command=returncommand();
-	angnow=angle_filter();
-	hight=hight_filter();
+	angnow=return_angle();
+	hight=return_hight();
 	
 	//高度过低时角度不进行积分，防止地形影响
 	if(hight<4)

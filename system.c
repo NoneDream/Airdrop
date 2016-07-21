@@ -18,7 +18,9 @@ extern remotedata command_buf;
 extern float integral_h;
 extern int mot_min_h;
 extern angle integral;
+extern angle angin;
 
+//系统初始化
 void sysinit(void)
 {
 	sensorinit();//陀螺仪复位
@@ -27,8 +29,15 @@ void sysinit(void)
 	R_TAU0_Channel0_Start();//开启pwm输出
 }
 
+//启动
 void start(void)
 {
+	//积分项清零
+	integral_h=0;
+	integral.x=0;
+	integral.y=0;
+	integral.z=0;
+	
 	//设置初始目标值
 	mot_min_h=1000;
 	command_buf.h=10;
@@ -40,6 +49,7 @@ void start(void)
 	sign_stop=0;
 }
 
+//停止
 void stop(void)
 {
 	//设置标志位
@@ -89,8 +99,11 @@ void mot_output(void)
 	TDR04=output_buffer.TDR4;
 }
 
-//这个函数向上位机发送飞行器状态
-void report()
+//侧翻保护
+void protect()
 {
-	//R_UART1_Send();
+    if(angin.x>PROTECT)sign_stop=true;
+    if(angin.x<-PROTECT)sign_stop=true;
+    if(angin.y>PROTECT)sign_stop=true;
+    if(angin.y<-PROTECT)sign_stop=true;
 }

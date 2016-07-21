@@ -1,29 +1,34 @@
 /***********************************************************************************************************************
 * DISCLAIMER
-* This software is supplied by Renesas Electronics Corporation and is only intended for use with Renesas products.
-* No other uses are authorized. This software is owned by Renesas Electronics Corporation and is protected under all
-* applicable laws, including copyright laws. 
-* THIS SOFTWARE IS PROVIDED "AS IS" AND RENESAS MAKES NO WARRANTIESREGARDING THIS SOFTWARE, WHETHER EXPRESS, IMPLIED
-* OR STATUTORY, INCLUDING BUT NOT LIMITED TO WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
-* NON-INFRINGEMENT.  ALL SUCH WARRANTIES ARE EXPRESSLY DISCLAIMED.TO THE MAXIMUM EXTENT PERMITTED NOT PROHIBITED BY
-* LAW, NEITHER RENESAS ELECTRONICS CORPORATION NOR ANY OF ITS AFFILIATED COMPANIES SHALL BE LIABLE FOR ANY DIRECT,
-* INDIRECT, SPECIAL, INCIDENTAL OR CONSEQUENTIAL DAMAGES FOR ANY REASON RELATED TO THIS SOFTWARE, EVEN IF RENESAS OR
-* ITS AFFILIATES HAVE BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.
-* Renesas reserves the right, without notice, to make changes to this software and to discontinue the availability 
-* of this software. By using this software, you agree to the additional terms and conditions found by accessing the 
+* This software is supplied by Renesas Electronics Corporation and is only 
+* intended for use with Renesas products. No other uses are authorized. This 
+* software is owned by Renesas Electronics Corporation and is protected under 
+* all applicable laws, including copyright laws.
+* THIS SOFTWARE IS PROVIDED "AS IS" AND RENESAS MAKES NO WARRANTIES REGARDING 
+* THIS SOFTWARE, WHETHER EXPRESS, IMPLIED OR STATUTORY, INCLUDING BUT NOT 
+* LIMITED TO WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE 
+* AND NON-INFRINGEMENT.  ALL SUCH WARRANTIES ARE EXPRESSLY DISCLAIMED.
+* TO THE MAXIMUM EXTENT PERMITTED NOT PROHIBITED BY LAW, NEITHER RENESAS 
+* ELECTRONICS CORPORATION NOR ANY OF ITS AFFILIATED COMPANIES SHALL BE LIABLE 
+* FOR ANY DIRECT, INDIRECT, SPECIAL, INCIDENTAL OR CONSEQUENTIAL DAMAGES FOR 
+* ANY REASON RELATED TO THIS SOFTWARE, EVEN IF RENESAS OR ITS AFFILIATES HAVE 
+* BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.
+* Renesas reserves the right, without notice, to make changes to this software 
+* and to discontinue the availability of this software.  By using this software, 
+* you agree to the additional terms and conditions found by accessing the 
 * following link:
 * http://www.renesas.com/disclaimer
 *
-* Copyright (C) 2011, 2015 Renesas Electronics Corporation. All rights reserved.
+* Copyright (C) 2011, 2013 Renesas Electronics Corporation. All rights reserved.
 ***********************************************************************************************************************/
 
 /***********************************************************************************************************************
 * File Name    : r_cg_serial.c
-* Version      : CodeGenerator for RL78/G13 V2.03.02.01 [15 May 2015]
+* Version      : CodeGenerator for RL78/G13 V2.00.00.07 [22 Feb 2013]
 * Device(s)    : R5F100LE
 * Tool-Chain   : CA78K0R
 * Description  : This file implements device driver for Serial module.
-* Creation Date: 2016/5/31
+* Creation Date: 2016/7/21
 ***********************************************************************************************************************/
 
 /***********************************************************************************************************************
@@ -77,7 +82,7 @@ void R_SAU0_Create(void)
     NOP();
     NOP();
     NOP();
-    SPS0 = _0001_SAU_CK00_FCLK_1 | _0040_SAU_CK01_FCLK_4;
+    SPS0 = _0001_SAU_CK00_FCLK_1 | _0010_SAU_CK01_FCLK_1;
     R_UART0_Create();
     R_UART1_Create();
 }
@@ -133,13 +138,15 @@ void R_UART0_Create(void)
 ***********************************************************************************************************************/
 void R_UART0_Start(void)
 {
+    STIF0 = 0U;    /* clear INTST0 interrupt flag */
+    STMK0 = 0U;    /* enable INTST0 interrupt */
+    SRIF0 = 0U;    /* clear INTSR0 interrupt flag */
+    SRMK0 = 0U;    /* enable INTSR0 interrupt */
+    SREIF0 = 0U;   /* clear INTSRE0 interrupt flag */
+    SREMK0 = 0U;   /* enable INTSRE0 interrupt */
     SO0 |= _0001_SAU_CH0_DATA_OUTPUT_1;    /* output level normal */
     SOE0 |= _0001_SAU_CH0_OUTPUT_ENABLE;    /* enable UART0 output */
     SS0 |= _0002_SAU_CH1_START_TRG_ON | _0001_SAU_CH0_START_TRG_ON;    /* enable UART0 receive and transmit */
-    STIF0 = 0U;    /* clear INTST0 interrupt flag */
-    SRIF0 = 0U;    /* clear INTSR0 interrupt flag */
-    STMK0 = 0U;    /* enable INTST0 interrupt */
-    SRMK0 = 0U;    /* enable INTSR0 interrupt */
 }
 
 /***********************************************************************************************************************
@@ -150,13 +157,14 @@ void R_UART0_Start(void)
 ***********************************************************************************************************************/
 void R_UART0_Stop(void)
 {
-    STMK0 = 1U;    /* disable INTST0 interrupt */
-    SRMK0 = 1U;    /* disable INTSR0 interrupt */
     ST0 |= _0002_SAU_CH1_STOP_TRG_ON | _0001_SAU_CH0_STOP_TRG_ON;    /* disable UART0 receive and transmit */
     SOE0 &= ~_0001_SAU_CH0_OUTPUT_ENABLE;    /* disable UART0 output */
+    STMK0 = 1U;    /* disable INTST0 interrupt */
     STIF0 = 0U;    /* clear INTST0 interrupt flag */
+    SRMK0 = 1U;    /* disable INTSR0 interrupt */
     SRIF0 = 0U;    /* clear INTSR0 interrupt flag */
-   
+    SREMK0 = 1U;   /* disable INTSRE0 interrupt */
+    SREIF0 = 0U;   /* clear INTSRE0 interrupt flag */
 }
 
 /***********************************************************************************************************************
@@ -235,24 +243,24 @@ void R_UART1_Create(void)
     SRIF1 = 0U;    /* clear INTSR1 interrupt flag */
     SREMK1 = 1U;   /* disable INTSRE1 interrupt */
     SREIF1 = 0U;   /* clear INTSRE1 interrupt flag */
-    /* Set INTST1 level2 priority */
-    STPR11 = 1U;
-    STPR01 = 0U;
-    /* Set INTSR1 level2 priority */
-    SRPR11 = 1U;
-    SRPR01 = 0U;
-    SMR02 = _0020_SAU_SMRMN_INITIALVALUE | _8000_SAU_CLOCK_SELECT_CK01 | _0000_SAU_TRIGGER_SOFTWARE |
+    /* Set INTST1 level1 priority */
+    STPR11 = 0U;
+    STPR01 = 1U;
+    /* Set INTSR1 level1 priority */
+    SRPR11 = 0U;
+    SRPR01 = 1U;
+    SMR02 = _0020_SAU_SMRMN_INITIALVALUE | _0000_SAU_CLOCK_SELECT_CK00 | _0000_SAU_TRIGGER_SOFTWARE |
             _0002_SAU_MODE_UART | _0000_SAU_TRANSFER_END;
     SCR02 = _8000_SAU_TRANSMISSION | _0000_SAU_INTSRE_MASK | _0000_SAU_PARITY_NONE | _0080_SAU_LSB | _0010_SAU_STOP_1 |
             _0007_SAU_LENGTH_8;
-    SDR02 = _CE00_UART1_TRANSMIT_DIVISOR;
+    SDR02 = _8800_UART1_TRANSMIT_DIVISOR;
     NFEN0 |= _04_SAU_RXD1_FILTER_ON;
     SIR03 = _0004_SAU_SIRMN_FECTMN | _0002_SAU_SIRMN_PECTMN | _0001_SAU_SIRMN_OVCTMN;    /* clear error flag */
-    SMR03 = _0020_SAU_SMRMN_INITIALVALUE | _8000_SAU_CLOCK_SELECT_CK01 | _0100_SAU_TRIGGER_RXD | _0000_SAU_EDGE_FALL |
+    SMR03 = _0020_SAU_SMRMN_INITIALVALUE | _0000_SAU_CLOCK_SELECT_CK00 | _0100_SAU_TRIGGER_RXD | _0000_SAU_EDGE_FALL |
             _0002_SAU_MODE_UART | _0000_SAU_TRANSFER_END;
     SCR03 = _4000_SAU_RECEPTION | _0000_SAU_INTSRE_MASK | _0000_SAU_PARITY_NONE | _0080_SAU_LSB | _0010_SAU_STOP_1 |
             _0007_SAU_LENGTH_8;
-    SDR03 = _CE00_UART1_RECEIVE_DIVISOR;
+    SDR03 = _8800_UART1_RECEIVE_DIVISOR;
     SO0 |= _0004_SAU_CH2_DATA_OUTPUT_1;
     SOL0 |= _0000_SAU_CHANNEL2_NORMAL;    /* output level normal */
     SOE0 |= _0004_SAU_CH2_OUTPUT_ENABLE;    /* enable UART1 output */
@@ -273,13 +281,15 @@ void R_UART1_Create(void)
 ***********************************************************************************************************************/
 void R_UART1_Start(void)
 {
+    STIF1 = 0U;    /* clear INTST1 interrupt flag */
+    STMK1 = 0U;    /* enable INTST1 interrupt */
+    SRIF1 = 0U;    /* clear INTSR1 interrupt flag */
+    SRMK1 = 0U;    /* enable INTSR1 interrupt */
+    SREIF1 = 0U;   /* clear INTSRE1 interrupt flag */
+    SREMK1 = 0U;   /* enable INTSRE1 interrupt */
     SO0 |= _0004_SAU_CH2_DATA_OUTPUT_1;    /* output level normal */
     SOE0 |= _0004_SAU_CH2_OUTPUT_ENABLE;    /* enable UART1 output */
     SS0 |= _0008_SAU_CH3_START_TRG_ON | _0004_SAU_CH2_START_TRG_ON;    /* enable UART1 receive and transmit */
-    STIF1 = 0U;    /* clear INTST1 interrupt flag */
-    SRIF1 = 0U;    /* clear INTSR1 interrupt flag */
-    STMK1 = 0U;    /* enable INTST1 interrupt */
-    SRMK1 = 0U;    /* enable INTSR1 interrupt */
 }
 
 /***********************************************************************************************************************
@@ -290,13 +300,14 @@ void R_UART1_Start(void)
 ***********************************************************************************************************************/
 void R_UART1_Stop(void)
 {
-    STMK1 = 1U;    /* disable INTST1 interrupt */
-    SRMK1 = 1U;    /* disable INTSR1 interrupt */
     ST0 |= _0008_SAU_CH3_STOP_TRG_ON | _0004_SAU_CH2_STOP_TRG_ON;    /* disable UART1 receive and transmit */
     SOE0 &= ~_0004_SAU_CH2_OUTPUT_ENABLE;    /* disable UART1 output */
+    STMK1 = 1U;    /* disable INTST1 interrupt */
     STIF1 = 0U;    /* clear INTST1 interrupt flag */
+    SRMK1 = 1U;    /* disable INTSR1 interrupt */
     SRIF1 = 0U;    /* clear INTSR1 interrupt flag */
-   
+    SREMK1 = 1U;   /* disable INTSRE1 interrupt */
+    SREIF1 = 0U;   /* clear INTSRE1 interrupt flag */
 }
 
 /***********************************************************************************************************************
@@ -429,7 +440,7 @@ void R_IICA0_StopCondition(void)
 *                wait -
 *                    wait for start condition
 * Return Value : status -
-*                    MD_OK or MD_ERROR1 or MD_ERROR2
+*                    MD_OK or MD_ERROR1 or MD_ERROR2 or MD_ERROR3
 ***********************************************************************************************************************/
 MD_STATUS R_IICA0_Master_Send(uint8_t adr, uint8_t * const tx_buf, uint16_t tx_num, uint8_t wait)
 {
@@ -442,6 +453,12 @@ MD_STATUS R_IICA0_Master_Send(uint8_t adr, uint8_t * const tx_buf, uint16_t tx_n
         /* Check bus busy */
         IICAMK0 = 0U;  /* enable INTIICA0 interrupt */
         status = MD_ERROR1;
+    } 
+    else if ((1U == SPT0) || (1U == STT0)) 
+    {
+        /* Check trigger */
+        IICAMK0 = 0U;  /* enable INTIICA0 interrupt */  
+        status = MD_ERROR2;
     }
     else
     {
@@ -456,7 +473,7 @@ MD_STATUS R_IICA0_Master_Send(uint8_t adr, uint8_t * const tx_buf, uint16_t tx_n
         
         if (0U == STD0)
         {
-            status = MD_ERROR2;
+            status = MD_ERROR3;
         }
 		
         /* Set parameter */
@@ -482,7 +499,7 @@ MD_STATUS R_IICA0_Master_Send(uint8_t adr, uint8_t * const tx_buf, uint16_t tx_n
 *                wait -
 *                    wait for start condition
 * Return Value : status -
-*                    MD_OK or MD_ERROR1 or MD_ERROR2
+*                    MD_OK or MD_ERROR1 or MD_ERROR2 or MD_ERROR3
 ***********************************************************************************************************************/
 MD_STATUS R_IICA0_Master_Receive(uint8_t adr, uint8_t * const rx_buf, uint16_t rx_num, uint8_t wait)
 {
@@ -495,6 +512,12 @@ MD_STATUS R_IICA0_Master_Receive(uint8_t adr, uint8_t * const rx_buf, uint16_t r
         /* Check bus busy */
         IICAMK0 = 0U;  /* enable INTIIA0 interrupt */
         status = MD_ERROR1;
+    } 
+    else if ((1U == SPT0) || (1U == STT0))
+    {
+        /* Check trigger */
+        IICAMK0 = 0U;  /* enable INTIICA0 interrupt */
+        status = MD_ERROR2;
     }
     else
     {
@@ -509,7 +532,7 @@ MD_STATUS R_IICA0_Master_Receive(uint8_t adr, uint8_t * const rx_buf, uint16_t r
         
         if (0U == STD0)
         {
-            status = MD_ERROR2;
+            status = MD_ERROR3;
         }
 		
         /* Set parameter */

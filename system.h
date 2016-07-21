@@ -3,6 +3,8 @@
 
 #include "r_cg_userdefine.h"
 
+#define OPTIMIZE
+
 #define DEBUG
 
 	#ifdef DEBUG
@@ -20,11 +22,22 @@
 #define MOT_MIN 2020
 #define PROTECT 60
 
+//系统初始化
 void sysinit(void);
+
+//启动
 void start(void);
+
+//停止
 void stop(void);
+
+//这个函数对pwm进行最终限幅
 void mot_preoutput(void);
+
+//这个函数真正输出pwm变化
 void mot_output(void);
-void report(void);
+
+//侧翻保护
+void protect(void);
 
 #endif

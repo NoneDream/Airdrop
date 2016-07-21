@@ -7,8 +7,16 @@
 //extern int limh;
 //extern int motout_hit;
 
+//发送请求
+void send_com(void);
+
+//获取传感器数据
 void get_data(void);
-float hight_filter(void);
-float return_delta_h(void);
+
+//高度数据解析和滤波（单位：厘米）
+void hight_filter(void);
+
+//这个函数返回高度
+float return_hight(void);
 
 #endif

@@ -1,29 +1,34 @@
 /***********************************************************************************************************************
 * DISCLAIMER
-* This software is supplied by Renesas Electronics Corporation and is only intended for use with Renesas products.
-* No other uses are authorized. This software is owned by Renesas Electronics Corporation and is protected under all
-* applicable laws, including copyright laws. 
-* THIS SOFTWARE IS PROVIDED "AS IS" AND RENESAS MAKES NO WARRANTIESREGARDING THIS SOFTWARE, WHETHER EXPRESS, IMPLIED
-* OR STATUTORY, INCLUDING BUT NOT LIMITED TO WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
-* NON-INFRINGEMENT.  ALL SUCH WARRANTIES ARE EXPRESSLY DISCLAIMED.TO THE MAXIMUM EXTENT PERMITTED NOT PROHIBITED BY
-* LAW, NEITHER RENESAS ELECTRONICS CORPORATION NOR ANY OF ITS AFFILIATED COMPANIES SHALL BE LIABLE FOR ANY DIRECT,
-* INDIRECT, SPECIAL, INCIDENTAL OR CONSEQUENTIAL DAMAGES FOR ANY REASON RELATED TO THIS SOFTWARE, EVEN IF RENESAS OR
-* ITS AFFILIATES HAVE BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.
-* Renesas reserves the right, without notice, to make changes to this software and to discontinue the availability 
-* of this software. By using this software, you agree to the additional terms and conditions found by accessing the 
+* This software is supplied by Renesas Electronics Corporation and is only 
+* intended for use with Renesas products. No other uses are authorized. This 
+* software is owned by Renesas Electronics Corporation and is protected under 
+* all applicable laws, including copyright laws.
+* THIS SOFTWARE IS PROVIDED "AS IS" AND RENESAS MAKES NO WARRANTIES REGARDING 
+* THIS SOFTWARE, WHETHER EXPRESS, IMPLIED OR STATUTORY, INCLUDING BUT NOT 
+* LIMITED TO WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE 
+* AND NON-INFRINGEMENT.  ALL SUCH WARRANTIES ARE EXPRESSLY DISCLAIMED.
+* TO THE MAXIMUM EXTENT PERMITTED NOT PROHIBITED BY LAW, NEITHER RENESAS 
+* ELECTRONICS CORPORATION NOR ANY OF ITS AFFILIATED COMPANIES SHALL BE LIABLE 
+* FOR ANY DIRECT, INDIRECT, SPECIAL, INCIDENTAL OR CONSEQUENTIAL DAMAGES FOR 
+* ANY REASON RELATED TO THIS SOFTWARE, EVEN IF RENESAS OR ITS AFFILIATES HAVE 
+* BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.
+* Renesas reserves the right, without notice, to make changes to this software 
+* and to discontinue the availability of this software.  By using this software, 
+* you agree to the additional terms and conditions found by accessing the 
 * following link:
 * http://www.renesas.com/disclaimer
 *
-* Copyright (C) 2011, 2015 Renesas Electronics Corporation. All rights reserved.
+* Copyright (C) 2011, 2013 Renesas Electronics Corporation. All rights reserved.
 ***********************************************************************************************************************/
 
 /***********************************************************************************************************************
 * File Name    : r_cg_userdefine.h
-* Version      : CodeGenerator for RL78/G13 V2.03.02.01 [15 May 2015]
+* Version      : CodeGenerator for RL78/G13 V2.00.00.07 [22 Feb 2013]
 * Device(s)    : R5F100LE
 * Tool-Chain   : CA78K0R
 * Description  : This file includes user definition.
-* Creation Date: 2016/5/31
+* Creation Date: 2016/7/21
 ***********************************************************************************************************************/
 
 #ifndef _USER_DEF_H
@@ -36,8 +41,10 @@ User definitions
 /* Start user code for function. Do not edit comment generated here */
 #define LED P13.0
 
+//布尔型定义
 typedef enum {true=1, false=0} bool;
 
+//双环pid系数
 typedef struct
 {
 	float waihuan_p;
@@ -47,6 +54,7 @@ typedef struct
 	int i_limit;//积分项限幅
 }ppid;
 
+//角度数据
 typedef struct
 {
 	float x;
@@ -54,6 +62,7 @@ typedef struct
 	float z;
 }angle;
 
+//pwm参数
 typedef struct
 {
 	int TDR1;
@@ -62,6 +71,7 @@ typedef struct
 	int TDR4;
 }motor;
 
+//控制数据
 typedef struct
 {
 	float x;
@@ -70,17 +80,19 @@ typedef struct
 	float vz;
 }remotedata;
 
+//陀螺仪数据
 typedef struct
 {
-	char head[2];
-	char type;
-	unsigned char len;
+	char head[2];//固定0x5A,0x5A
+	char type;//0x45表示欧拉角数据
+	unsigned char len;//数据长度，应为6
 	int16_t x;
 	int16_t y;
 	int16_t z;
-	char checksum;
+	unsigned char checksum;//数据的校验和
 }gy95_frame;
 
+//光流数据
 typedef struct
 {
 	uint16_t frame_count;// counts created I2C frames [#frames]
@@ -97,6 +109,7 @@ typedef struct
 	int16_t ground_distance;// Ground distance in meters*1000 [meters]. Positive value: distance known. Negative value: Unknown distance
 } px4flow_frame;
 
+//上位机数据
 typedef struct
 {
 	char head[2];//0xff,0x00
@@ -105,7 +118,7 @@ typedef struct
 	int16_t data2;//y; ip;
 	int16_t data3;//vz; ii;
 	int16_t data4;//h; id
-	char end;
+	unsigned char end;
 }pi_frame;
 /* End user code. Do not edit comment generated here */
 #endif
