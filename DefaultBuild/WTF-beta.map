@@ -1,24 +1,22 @@
 
 
 
-78K0R Linker W1.70                            Date:21 Jul 2016 Page:   1
+78K0R Linker W1.80                            Date:22 Jul 2016 Page:   1
 
-Command:   -yC:\Program Files (x86)\Renesas Electronics\CubeSuite+\Devic
-           e\RL78\Devicefile -_msgoff -oDefaultBuild\WTF-beta.lmf -gi000
-           00000000000000000h -go84h,0FE00h,512 -gb0EFFFE8H -mi0 -s -pDe
-           faultBuild\WTF-beta.map C:\Program Files (x86)\Renesas Electr
-           onics\CubeSuite+\CA78K0R\V1.60\lib78k0r\s0rll.rel DefaultBuil
-           d\r_main.rel DefaultBuild\r_systeminit.rel DefaultBuild\r_cg_
-           cgc.rel DefaultBuild\r_cg_cgc_user.rel DefaultBuild\r_cg_port
-           .rel DefaultBuild\r_cg_port_user.rel DefaultBuild\r_cg_serial
-           .rel DefaultBuild\r_cg_serial_user.rel DefaultBuild\r_cg_time
-           r.rel DefaultBuild\r_cg_timer_user.rel DefaultBuild\r_cg_it.r
-           el DefaultBuild\r_cg_it_user.rel DefaultBuild\delay.rel Defau
-           ltBuild\GY95.rel DefaultBuild\attitude_control.rel DefaultBui
-           ld\system.rel DefaultBuild\px4flow.rel DefaultBuild\raspberry
-           _pi.rel -bcl0ram.lib -bcl0rm.lib -bcl0rmf.lib -iC:\Program Fi
-           les (x86)\Renesas Electronics\CubeSuite+\CA78K0R\V1.60\lib78k
-           0r
+Command:   -yD:\Renesas Electronics\CS+\CACX\Device\RL78\Devicefile -_ms
+           goff -oDefaultBuild\WTF-beta.lmf -gi00000000000000000000h -go
+           84h,0FE00h,512 -gb0EFFFE8H -mi0 -s -pDefaultBuild\WTF-beta.ma
+           p D:\Renesas Electronics\CS+\CACX\CA78K0R\V1.72\lib78k0r\s0rl
+           l.rel DefaultBuild\r_main.rel DefaultBuild\r_systeminit.rel D
+           efaultBuild\r_cg_cgc.rel DefaultBuild\r_cg_cgc_user.rel Defau
+           ltBuild\r_cg_port.rel DefaultBuild\r_cg_port_user.rel Default
+           Build\r_cg_serial.rel DefaultBuild\r_cg_serial_user.rel Defau
+           ltBuild\r_cg_timer.rel DefaultBuild\r_cg_timer_user.rel Defau
+           ltBuild\r_cg_it.rel DefaultBuild\r_cg_it_user.rel DefaultBuil
+           d\delay.rel DefaultBuild\GY95.rel DefaultBuild\attitude_contr
+           ol.rel DefaultBuild\system.rel DefaultBuild\px4flow.rel Defau
+           ltBuild\raspberry_pi.rel -bcl0ram.lib -bcl0rm.lib -bcl0rmf.li
+           b -iD:\Renesas Electronics\CS+\CACX\CA78K0R\V1.72\lib78k0r
 Para-file:
 Out-file:  DefaultBuild\WTF-beta.lmf
 Map-file:  DefaultBuild\WTF-beta.map
@@ -29,7 +27,7 @@ Directive:
 *** Link information ***
 
     51 output segment(s)
- 223BH byte(s) real data
+ 2245H byte(s) real data
   1624 symbol(s) defined
 
 
@@ -359,7 +357,7 @@ Directive:
                   @@CNST   px4flow    02006H    00002H
                   @@CNST   raspberry_pi
                                       02008H    00004H
-         @@CODEL                      0200CH    0149FH  CSEG
+         @@CODEL                      0200CH    014A9H  CSEG
                   @@CODEL  r_main     0200CH    00014H
                   @@CODEL  r_systeminit
                                       02020H    0002EH
@@ -388,8 +386,8 @@ Directive:
                   @@CODEL  system     02D9EH    001E3H
                   @@CODEL  px4flow    02F81H    000C9H
                   @@CODEL  raspberry_pi
-                                      0304AH    00461H
-* gap *                               034ABH    0C955H
+                                      0304AH    0046BH
+* gap *                               034B5H    0C94BH
          ??OCDROM                     0FE00H    00200H  CSEG
 
   MEMORY=RAM
@@ -629,5 +627,5 @@ Directive:
 
 
  Target chip : R5F100LE
- Device file : V1.12
+ Device file : V1.14
 

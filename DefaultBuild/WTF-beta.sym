@@ -187,12 +187,12 @@
 010304A_receive_start
 02FEFDC_receivewait0
 02FEFDD_receivewait1
-0103496_report
+010349C_report
 0103358_report_angle
-0103438_report_pwm
+010343B_report_pwm
 01029C1_return_angle
 0103043_return_hight
-010349B_returncommand
+01034A5_returncommand
 0102F81_send_com
 02FEFDA_sendwait0
 02FEFDB_sendwait1

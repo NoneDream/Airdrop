@@ -141,7 +141,8 @@ void report_angle(void)
 	report.y=SWAP8(report.y);
 	report.z=SWAP8(report.z);
 	
-	for(check=(unsigned char *)&report.head;check<(unsigned char *)&report.checksum;check++)
+	report.checksum=0;
+	for(check=(unsigned char *)report.head;check<(unsigned char *)&report.checksum;check++)
 		report.checksum=(unsigned char)(report.checksum+(*check));//计算校验和
 		
 	sendwait1=true;
@@ -175,7 +176,8 @@ void report_pwm(void)
 	report.data3=motout.TDR3;
 	report.data4=motout.TDR4;
 	
-	for(check=(unsigned char *)&report.head;check<(unsigned char *)&report.end;check++)
+	report.end=0;
+	for(check=(unsigned char *)report.head;check<(unsigned char *)&report.end;check++)
 		report.end=(unsigned char)(report.end+(*check));//计算校验和
 		
 	sendwait1=true;
@@ -188,6 +190,7 @@ void report_pwm(void)
 void report(void)
 {
 	report_angle();//发送滤波后的欧拉角数据
+	report_pwm();//发送电机数据
 }
 
 //返回指令数据
